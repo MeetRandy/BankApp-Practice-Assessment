@@ -1,0 +1,9 @@
+{
+    "emulator.emulatorPath": "/c/Users/Ryzen 5 Pro/AppData/Local/Android/Sdk/emulator",
+    "emulator.emulatorPathWindows": "C:/Users/Ryzen 5 Pro/AppData/Local/Android/Sdk/emulator",
+    "dotnet.debug.hotReloadXAML": true,
+    "dotnet.inlayHints.enableInlayHintsForOtherParameters": true,
+    "maui.configuration.debugVerbosity": "minimal",
+    "csharp.debug.logging.diagnosticsLog.protocolMessages": true,
+    "betterAlign.alignAfterTypeEnter": false
+}

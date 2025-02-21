@@ -1,0 +1,82 @@
+<ContentPage
+    x:Class="BankApp.Views.BeneficiariesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:BankApp.Behaviors"
+    xmlns:viewmodel="clr-namespace:BankApp.ViewModels"
+    x:Name="BeneficiaryPage"
+    Title="Beneficiaries">
+
+    <Grid x:Name="RootLayout" RowDefinitions="Auto, *">
+        <SearchBar
+            x:Name="SearchBar"
+            Grid.Row="0"
+            Placeholder="Search by name"
+            SearchCommand="{Binding SearchCommand}"
+            Text="{Binding Search, Mode=TwoWay}" />
+        <CollectionView
+            Grid.Row="1"
+            ItemsSource="{Binding FilteredBeneficiaries}"
+            SelectionMode="None">
+            <CollectionView.EmptyView>
+                <StackLayout Padding="20">
+                    <Label
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        Text="No results found."
+                        TextColor="Gray"
+                        VerticalOptions="Center" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Margin="10"
+                        Padding="10"
+                        BackgroundColor="White">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="6" />
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:Reference BeneficiaryPage}, Path=BindingContext.SelectBeneficiaryCommand}" CommandParameter="{Binding .}" />
+                        </Border.GestureRecognizers>
+                        <Border.Behaviors>
+                            <behaviors:TapToBounceBehavior />
+                        </Border.Behaviors>
+                        <Grid
+                            ColumnDefinitions="*, Auto"
+                            RowDefinitions="Auto, Auto"
+                            RowSpacing="5">
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontSize="18"
+                                Text="{Binding Name}"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontSize="12"
+                                Text="{Binding Bank}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Grid Grid.Row="1"
+            BackgroundColor="#44000000"
+            HorizontalOptions="Fill"
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="Fill">
+            <ActivityIndicator
+                HorizontalOptions="Center"
+                IsRunning="{Binding IsBusy}"
+                VerticalOptions="Center"
+                Color="White" />
+        </Grid>
+    </Grid>
+</ContentPage>

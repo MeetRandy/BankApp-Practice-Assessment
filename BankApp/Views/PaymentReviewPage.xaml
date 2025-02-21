@@ -1,0 +1,60 @@
+<ContentPage
+    x:Class="BankApp.Views.PaymentReviewPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:BankApp.ViewModels"
+    Title="Payment Review">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Border Padding="15" BackgroundColor="#E8F5E9">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        Text="Payment Details" />
+                    <Label FontSize="16" Text="{Binding Beneficiary.Name}" />
+                    <Label Text="{Binding Account.Number, StringFormat='Using Account:  {0}'}" />
+                    <Label Text="{Binding Beneficiary.Bank, StringFormat='Bank: {0}'}" />
+                    <Label Text="{Binding Beneficiary.BranchName, StringFormat='Branch:  {0}'}" />
+                    <Label Text="{Binding Account.Balance, StringFormat='Available balance:  R {0:N2}'}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Grid
+                Margin="0,20"
+                ColumnDefinitions="*,*"
+                RowDefinitions="*,*">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Amount:" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HorizontalOptions="End"
+                    Text="{Binding Amount, StringFormat='R {0:N2}'}" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Fee:" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalOptions="End"
+                    Text="{Binding Fee, StringFormat='R {0:N2}'}" />
+            </Grid>
+
+            <Button
+                BackgroundColor="#4CAF50"
+                Command="{Binding ExecutePaymentCommand}"
+                CornerRadius="20"
+                Text="Make Payment"
+                TextColor="White" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

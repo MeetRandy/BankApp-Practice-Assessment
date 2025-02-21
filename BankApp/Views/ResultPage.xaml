@@ -1,0 +1,43 @@
+<ContentPage
+    x:Class="BankApp.Views.ResultPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:BankApp.ViewModels"
+    Title="Payment Result">
+
+    <VerticalStackLayout
+        Padding="20"
+        Spacing="20"
+        VerticalOptions="Center">
+        <Label
+            FontSize="24"
+            HorizontalOptions="Center"
+            Text="Payment Successful!" />
+
+        <Border
+            Padding="15"
+            BackgroundColor="#E8F5E9">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="10" />  
+            </Border.StrokeShape>
+            <VerticalStackLayout>
+                <Label FontAttributes="Italic" Text="Reference Number:" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="{Binding PaymentReference}" />
+            </VerticalStackLayout>
+        </Border>
+
+        <Button
+            BackgroundColor="#2196F3"
+            Command="{Binding DoneCommand}"
+            CornerRadius="20"
+            HorizontalOptions="Center"
+            Text="Done"
+            TextColor="White"
+            WidthRequest="200" />
+
+    </VerticalStackLayout>
+</ContentPage>
