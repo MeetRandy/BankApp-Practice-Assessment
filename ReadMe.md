@@ -76,8 +76,8 @@ BankApp/
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/BankApp.git
-   cd BankApp
+   git clone https://github.com/MeetRandy/BankApp-Practice-Assessment.git
+   cd BankApp-Practice-Assessment
 
 2. **Restore NuGet Packages:**
 

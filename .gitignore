@@ -1,0 +1,75 @@
+# Visual Studio Specific
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build Output
+bin/
+obj/
+*.log
+
+# NuGet Packages
+packages/
+*.nupkg
+project.lock.json
+project.assets.json
+__pycache__/
+
+# User-Specific Settings
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# macOS & Linux Specific
+.DS_Store
+.vscode/
+.idea/
+
+# MAUI and Xamarin Specific
+*.apk
+*.aab
+*.ipa
+*.app
+*.xcuserstate
+*.xcworkspace/
+*.xcodeproj/
+*.xcode/
+*.xcuserdata/
+
+# Dependency Management
+node_modules/
+wwwroot/lib/
+libman.json
+.vsconfig
+
+# Rider/JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Logs
+logs/
+*.tlog
+*.log
+
+# Build Artifacts
+_build/
+_buildOutput/
+_release/
+_releaseOutput/
+
+# Generated Files
+Generated/
+GeneratedCode/
+ServiceReferences/
+Connected Services/
+
+# Resharper
+_ReSharper/
+*.DotSettings.user
+*.sln.DotSettings
